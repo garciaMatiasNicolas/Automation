@@ -1,0 +1,4 @@
+pytest
+webdriver-manager
+selenium
+pytest-html
