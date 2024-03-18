@@ -1,8 +1,14 @@
-from pages.ConsultRiskData import ConsultPage
+from pages.CartPage import CartPage
+from pages.LoginPage import LoginPage
 
 
-class TestScenarioReadData:
+class TestScenarioBuyItem:
 
-    def test_login(self, driver):
-        consult_open_case = ConsultPage(case_type="open", opt_reason="FRDNI", driver=driver)
-        consult_open_case.search_risk_data()
+    def test_buy_item(self, driver):
+        cart_page: CartPage = CartPage(driver=driver)
+        cart_page.checkout()
+
+    def test_negative_login(self, driver):
+        login_page: LoginPage = LoginPage(driver=driver, username="negative", password="invalid_password",
+                                          is_negative=True)
+        login_page.tc_login()

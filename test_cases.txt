@@ -1,0 +1,58 @@
+## AUTOMATION SCENARIOS ##
+
+URL: https://www.saucedemo.com/
+
+TEST SCENARIO BUY ITEM
+
+    TC_LOGIN =>
+
+        PRECONDITIONS =
+        * Navigate to URL and observe login displayed
+        * Enter username and password
+        * Click on the login button
+
+        EXPECTED OUTCOME =
+        * Successfully logged into the e-commerce platform
+        * SwagLab logo is displayed
+
+    TC_ADD_PRODUCTS =>
+
+            PRECONDITIONS =
+            * TC_LOGIN executed successfully
+            * Add Sauce Labs Backpack to cart from the homepage
+            * Add Sauce Labs Bike Light to cart from the homepage
+            * Verify that the cart counter shows 2 (products)
+            * Navigate to the cart URL (https://www.saucedemo.com/v1/cart.html)
+
+            EXPECTED OUTCOME =
+            * Both products are listed with their prices (29.99, 9.99)
+            * Buttons for REMOVE, CONTINUE SHOPPING, CHECKOUT are displayed
+            * Click on checkout
+
+    TC_CHECKOUT_PRODUCTS =>
+
+            PRECONDITIONS =
+            * TC_ADD_PRODUCTS executed successfully
+            * After checkout, redirected to the URL https://www.saucedemo.com/v1/checkout-step-one.html
+            * Data form (name, last name, zip code) is displayed
+            * Click on CONTINUE
+
+           EXPECTED OUTCOME =
+            * Redirected to https://www.saucedemo.com/v1/checkout-step-two.html
+            * Total price verified (39.98)
+            * Tax-inclusive price verified (total+= )
+            * Click on finalize
+
+    TC_COMPLETE_ORDER =>
+
+           PRECONDITIONS =
+            * TC_CHECKOUT_PRODUCTS executed successfully
+
+           EXPECTED OUTCOME =
+            * Redirected to the URL https://www.saucedemo.com/v1/checkout-complete.html
+            * Order completion verified with the text: THANK YOU FOR YOUR ORDER
+
+			
+
+
+
