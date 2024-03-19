@@ -1,5 +1,5 @@
 import time
-
+from selenium.webdriver.remote.webdriver import WebDriver
 from pages.InventoryPage import InventoryPage
 from selenium.webdriver.common.by import By
 
@@ -49,7 +49,7 @@ class CartPage(InventoryPage):
         for button in self.__buttons.values():
             super()._is_displayed(locator=button)
 
-    def checkout(self):
+    def go_to_checkout(self):
         # Add products from inventory page to the cart
         super().tc_add_products()
 
